@@ -10,7 +10,15 @@
 
 > 3x as fast as `is-whitespace` and `whitespace-regex` thanks to `is-string-blank`.  This package is a simple function that accepts an argument and returns `true` if it is a string AND it is not blank.
 
+
 ## Table of Contents
+
+* [Install](#install)
+* [Usage](#usage)
+* [Background](#background)
+* [Benchmark](#benchmark)
+* [Contributors](#contributors)
+* [License](#license)
 
 
 ## Install
@@ -49,9 +57,10 @@ console.log(isSANB([ 'test', 'test', 'test'])); // false
 console.log(isSANB(' foo ')); // true
 ```
 
+
 ## Background
 
-I made this after running into a bug with Firefox Klar/Focus, specifically related to `underscore.string` exposing `s` as the global, and that WebView overriding the global variable `s`.  See <https://github.com/mozilla-mobile/focus-android/issues/4295>, <https://github.com/epeli/underscore.string/issues/523>, and <https://github.com/epeli/underscore.string/issues/415>.
+I made this after running into a bug with Firefox Klar/Focus, specifically related to `underscore.string` exposing `s` as the global, and that WebView overriding the global variable `s`.  See [mozilla-mobile/focus-android#4295](https://github.com/mozilla-mobile/focus-android/issues/4295), [epeli/underscore.string#523](https://github.com/epeli/underscore.string/issues/523), and [epeli/underscore.string#415](https://github.com/epeli/underscore.string/issues/415).
 
 Also, using `underscore.string` just for its `s.isBlank` function is not preferable, and `is-whitespace`, and all other solutions did not save me the stress of having to type out `if (typeof foo === 'string' && !isBlank(foo))`.
 
@@ -63,6 +72,7 @@ Other packages out there solve this problem similarly, however they do not retur
 * [is-string-blank](https://github.com/plotly/is-string-blank) - same as `is-whitespace` above
 * [is-blank](https://www.npmjs.com/package/is-blank) - same as `is-whitespace` and `is-string-blank` above
 
+
 ## Benchmark
 
 See the test folder for a benchmark check integrated with the tests.
@@ -72,13 +82,20 @@ See the test folder for a benchmark check integrated with the tests.
 ℹ is-string-and-not-blank x 145,034,505 ops/sec ±2.33% (86 runs sampled)
 ```
 
+
 ## Contributors
+
+| Name           | Website                    |
+| -------------- | -------------------------- |
+| **Nick Baugh** | <http://niftylettuce.com/> |
 
 
 ## License
 
+[MIT](LICENSE) © [Nick Baugh](http://niftylettuce.com/)
 
-##
+
+## 
 
 [npm]: https://www.npmjs.com/
 
