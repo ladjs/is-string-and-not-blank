@@ -8,13 +8,17 @@
 [![license](https://img.shields.io/github/license/niftylettuce/is-string-and-not-blank.svg)](LICENSE)
 [![npm downloads](https://img.shields.io/npm/dt/is-string-and-not-blank.svg)](https://npm.im/is-string-and-not-blank)
 
-> 3x as fast as `is-whitespace` and `whitespace-regex` thanks to `is-string-blank`.  This package is a simple function that accepts an argument and returns `true` if it is a string AND it is not blank.
+> 3x as fast as `is-whitespace` and `whitespace-regex` thanks to `is-string-blank`.  This package is a simple function that accepts an argument and returns `true` if it is a string AND it is not blank.  Supports Node and Browser environments.
 
 
 ## Table of Contents
 
 * [Install](#install)
+  * [Node](#node)
+  * [Browser](#browser)
 * [Usage](#usage)
+  * [Node](#node-1)
+  * [Browser](#browser-1)
 * [Background](#background)
 * [Benchmark](#benchmark)
 * [Contributors](#contributors)
@@ -22,6 +26,8 @@
 
 
 ## Install
+
+### Node
 
 [npm][]:
 
@@ -35,8 +41,14 @@ npm install is-string-and-not-blank
 yarn add is-string-and-not-blank
 ```
 
+### Browser
+
+See [Browser](#browser-1) usage below for more information.
+
 
 ## Usage
+
+### Node
 
 ```js
 const isSANB = require('is-string-and-not-blank');
@@ -56,6 +68,38 @@ console.log(isSANB([ 'test', 'test', 'test'])); // false
 // returns true because it's a string and it is not blank
 console.log(isSANB(' foo ')); // true
 ```
+
+### Browser
+
+#### VanillaJS
+
+**The browser-ready bundle is only 566 bytes (minified and gzipped)**.
+
+```html
+<script src="https://unpkg.com/is-string-and-not-blank"></script>
+<script type="text/javascript">
+  (function() {
+    // returns false because it's a blank string
+    console.log(isSANB('    ')); // false
+
+    // returns true because it's a string and is not blank
+    console.log(isSANB('foo')); // true
+
+    // returns false because it's not a string
+    console.log(isSANB([])); // false
+
+    // returns false because it's not a string
+    console.log(isSANB([ 'test', 'test', 'test'])); // false
+
+    // returns true because it's a string and it is not blank
+    console.log(isSANB(' foo ')); // true
+  });
+</script>
+```
+
+#### Bundler
+
+If you're using something like [browserify][], [webpack][], or [rollup][], then install the package as you would with [Node](#node) above.
 
 
 ## Background
@@ -100,3 +144,9 @@ See the test folder for a benchmark check integrated with the tests.
 [npm]: https://www.npmjs.com/
 
 [yarn]: https://yarnpkg.com/
+
+[browserify]: https://github.com/browserify/browserify
+
+[webpack]: https://github.com/webpack/webpack
+
+[rollup]: https://github.com/rollup/rollup
